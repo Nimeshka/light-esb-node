@@ -496,6 +496,7 @@ var ESBCallComponent = function(callback, requestURL, method, pathArguments, que
                 var status = self._retrieveResponseStatus(response);
                 util.debugCall('Component: %o requesting %s received response %o with body %o', self, self.URL, status, responseBody);
                 message.payload = responseBody;
+                message.status = status;
                 util.debugComponent('Component: %o requesting %s received GET response: %o', self, self.URL, status);
                 self.next(message);
             }).on('error', function (err) {
@@ -513,6 +514,7 @@ var ESBCallComponent = function(callback, requestURL, method, pathArguments, que
                 var status = self._retrieveResponseStatus(response);
                 util.debugCall('Component: %o requesting %s received response %o with body %o', self, self.URL, status, responseBody);
                 message.payload = responseBody;
+                message.status = status;
                 util.debugComponent('Component: %o requesting %s received POST response: %o', self, self.URL, status);
                 self.next(message);
             }).on('error', function (err) {
@@ -529,6 +531,7 @@ var ESBCallComponent = function(callback, requestURL, method, pathArguments, que
               var status = self._retrieveResponseStatus(response);
               util.debugCall('Component: %o requesting %s received response %o with body %o', self, self.URL, status, responseBody);
               message.payload = responseBody;
+              message.status = status;
               util.debugComponent('Component: %o requesting %s received DELETE response: %o', self, self.URL, status);
               self.next(message);
           }).on('error', function (err) {
